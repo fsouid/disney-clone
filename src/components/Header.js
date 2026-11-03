@@ -19,10 +19,14 @@ const Header = (props) => {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        dispatch(setUserLogin(user));
-        navigate("/home");
+        dispatch(setUserLogin({
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+      }));
       } else {
         dispatch(setUserLogout());
+        navigate("/");
       }
     });
   }, [dispatch, navigate]);
