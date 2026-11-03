@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import {
   selectUserName,
   selectUserPhoto,
-  selectUserEmail,
   setUserLogin,
   setUserLogout,
 } from "../features/user/userSlice";
@@ -16,18 +15,17 @@ const Header = (props) => {
   const navigate = useNavigate();
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
-  const userEmail = useSelector(selectUserEmail);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        setUser(user);
+        dispatch(setUserLogin(user));
         navigate("/home");
       } else {
         dispatch(setUserLogout());
       }
     });
-  }, [dispatch]);
+  }, [dispatch, navigate]);
 
   const handleAuth = () => {
     if (!userName) {

@@ -36,6 +36,8 @@ const Home = (props) => {
           case "trending":
             trending.push({ id: doc.id, ...doc.data() });
             break;
+          default:
+            break;
         }
       });
       dispatch(
@@ -47,7 +49,7 @@ const Home = (props) => {
         }),
       );
     });
-  }, [userName]);
+  }, [dispatch, userName]);
 
   return (
     <Container>
