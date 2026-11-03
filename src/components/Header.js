@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React, { useEffect } from "react";
 import { auth, provider } from "../firebase";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   selectUserName,
   selectUserPhoto,
@@ -69,30 +69,30 @@ const Header = (props) => {
       ) : (
         <>
           <NavMenu>
-            <a href="/home">
+            <Link to="/home">
               <img src="/assets/home-icon.svg" alt="HOME" />
               <span>HOME</span>
-            </a>
-            <a href="/home">
+            </Link>
+            <Link to="/home">
               <img src="/assets/search-icon.svg" alt="SEARCH" />
               <span>SEARCH</span>
-            </a>
-            <a href="/home">
+            </Link>
+            <Link to="/home">
               <img src="/assets/watchlist-icon.svg" alt="WATCHLIST" />
               <span>WATCHLIST</span>
-            </a>
-            <a href="/home">
+            </Link>
+            <Link to="/home">
               <img src="/assets/original-icon.svg" alt="ORIGINALS" />
               <span>ORIGINALS</span>
-            </a>
-            <a href="/home">
+            </Link>
+            <Link to="/home">
               <img src="/assets/movie-icon.svg" alt="MOVIES" />
               <span>MOVIES</span>
-            </a>
-            <a href="/home">
+            </Link>
+            <Link to="/home">
               <img src="/assets/series-icon.svg" alt="SERIES" />
               <span>SERIES</span>
-            </a>
+            </Link>
           </NavMenu>
           <SignOut onClick={handleAuth}>
             <UserAvatar src={userPhoto} alt={userName} />
